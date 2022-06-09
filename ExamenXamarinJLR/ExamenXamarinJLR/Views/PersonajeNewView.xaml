@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExamenXamarinJLR.Views.PersonajeNewView"
+             xmlns:local="clr-namespace:ExamenXamarinJLR"
+             BindingContext="{Binding Source={x:Static local:App.ServiceLocator}, Path=PersonajeNewViewModel}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="New Personaje"
+                VerticalOptions="Start" 
+                HorizontalOptions="CenterAndExpand" />
+            <StackLayout Orientation="Vertical">
+                <Label Text="Nombre"/>
+                <Entry Text="{Binding Personaje.Nombre}"/>
+                <Label Text="Imagen"/>
+                <Entry Text="{Binding Personaje.Imagen}"/>
+                <Label Text="Id Serie"/>
+                <Entry Text="{Binding Personaje.IdSerie}"/>
+                <Button Text="Insertar" Command="{Binding InsertarPersonaje}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

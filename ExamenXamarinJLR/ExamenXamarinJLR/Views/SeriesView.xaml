@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExamenXamarinJLR.Views.SeriesView"
+             xmlns:local="clr-namespace:ExamenXamarinJLR" Title="Series">
+    <ContentPage.Content>
+        <StackLayout x:Name="stackSeries" BindingContext="{Binding Source={x:Static local:App.ServiceLocator}, Path=SeriesListViewModel}">
+            <Label Text="Series" FontSize="24"
+                VerticalOptions="Start" 
+                HorizontalOptions="CenterAndExpand" />
+            <CarouselView ItemsSource="{Binding Series}">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Image Source="{Binding Imagen}" HeightRequest="200"/>
+                            <Label Text="{Binding Nombre}" FontSize="24" TextColor="Blue" HorizontalOptions="Center"/>
+                            <Label Text="{Binding Puntuacion, StringFormat='Puntuacion: {0}'}" FontSize="20" HorizontalOptions="Center"/>
+                            <Label Text="{Binding IdSerie, StringFormat='Id Serie: {0}'}" FontSize="20" HorizontalOptions="Center"/>
+                            <Label Text="{Binding Anyo, StringFormat='Año: {0}'}" FontSize="20" HorizontalOptions="Center"/>
+                            <Button  Text="Ver Personajes" HorizontalOptions="Center" Command="{Binding BindingContext.MotrarPersonajes, Source={x:Reference stackSeries} }"
+                                     CommandParameter="{Binding IdSerie}"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

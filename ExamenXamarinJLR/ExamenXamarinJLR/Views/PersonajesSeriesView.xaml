@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExamenXamarinJLR.Views.PersonajesSeriesView">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Personajes Serie"
+                VerticalOptions="Start" 
+                HorizontalOptions="CenterAndExpand" />
+            <CarouselView ItemsSource="{Binding Personajes}">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Image Source="{Binding Imagen}"  HeightRequest="200"/>
+                            <Label Text="{Binding Nombre}" FontSize="24" TextColor="Blue" HorizontalOptions="Center"/>
+                            <Label Text="{Binding IdSerie, StringFormat='Id Serie: {0}'}" FontSize="20" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
